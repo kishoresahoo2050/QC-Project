@@ -70,8 +70,8 @@ ai_qc_project/
 ### 1. Clone and install
 
 ```bash
-git clone <your-repo>
-cd ai_qc_project
+git clone https://github.com/kishoresahoo2050/QC-Project.git
+cd QC-Project
 python -m venv venv && source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
