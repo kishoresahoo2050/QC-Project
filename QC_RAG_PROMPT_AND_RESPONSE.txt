@@ -1,0 +1,115 @@
+
+Query:  QC issue: Pressure elevated (169.6)
+Docs:  ['Elevated pressure readings in pneumatic/hydraulic systems indicate:\n1. Downstream blockage or valve closure\n2. Filter clogging requiring replacement\n3. System leak causing pump overcompensation\n4. Regulator malfunction\nActions: check pressure relief valves, inspect filter differential pressure,\ntrace all downstream components for blockages.', 'High temperature anomaly in manufacturing equipment typically indicates:\n1. Coolant system failure or blockage\n2. Excessive friction due to worn bearings\n3. Overloaded motor running beyond rated capacity\n4. Blocked heat exchangers or cooling fins\nImmediate actions: reduce production speed by 20%, check coolant levels,', 'Critical multi-parameter anomaly protocol:\nWhen two or more parameters exceed warning thresholds simultaneously:\n1. Trigger immediate supervisor alert\n2. Reduce production speed to 50% of nominal\n3. Isolate affected machine if critical threshold reached\n4. Document all readings in non-conformance report (NCR)\n5. Do not resume full production until root cause identified and corrected', 'immediate supervisor notification and root cause documentation.']
+Sources:  ['maintenance_guide.pdf', 'ops_manual_v3.pdf', 'emergency_procedures.pdf', 'ops_manual_v3.pdf']
+
+========== ENTER analyze_root_cause_node ==========
+Incoming state:
+{
+  "reading_id": "e4d03d7d-bddb-441b-8f5d-50e02b811c15",
+  "sensor_data": {
+    "machine_id": "M-001",
+    "temperature": 68.84,
+    "pressure": 169.58,
+    "vibration": 4.749,
+    "defect_rate": 0.0447,
+    "production_speed": 44.94,
+    "timestamp": "2026-04-12 14:53:40.844423"
+  },
+  "is_anomaly": true,
+  "severity": "medium",
+  "anomaly_reasons": [
+    "Pressure elevated (169.6)"
+  ],
+  "context_docs": [
+    "Elevated pressure readings in pneumatic/hydraulic systems indicate:\n1. Downstream blockage or valve closure\n2. Filter clogging requiring replacement\n3. System leak causing pump overcompensation\n4. Regulator malfunction\nActions: check pressure relief valves, inspect filter differential pressure,\ntrace all downstream components for blockages.",
+    "High temperature anomaly in manufacturing equipment typically indicates:\n1. Coolant system failure or blockage\n2. Excessive friction due to worn bearings\n3. Overloaded motor running beyond rated capacity\n4. Blocked heat exchangers or cooling fins\nImmediate actions: reduce production speed by 20%, check coolant levels,",
+    "Critical multi-parameter anomaly protocol:\nWhen two or more parameters exceed warning thresholds simultaneously:\n1. Trigger immediate supervisor alert\n2. Reduce production speed to 50% of nominal\n3. Isolate affected machine if critical threshold reached\n4. Document all readings in non-conformance report (NCR)\n5. Do not resume full production until root cause identified and corrected",
+    "immediate supervisor notification and root cause documentation."
+  ],
+  "root_cause": null,
+  "recommendation": null,
+  "confidence": null,
+  "retrieved_docs": 4,
+  "sources": [
+    "maintenance_guide.pdf",
+    "ops_manual_v3.pdf",
+    "emergency_procedures.pdf",
+    "ops_manual_v3.pdf"
+  ]
+}
+
+---------- LLM REQUEST (PROMPT) ----------
+You are an expert manufacturing quality control engineer.
+
+Sensor Reading:
+  Machine ID       : M-001
+  Temperature      : 68.8 °C
+  Pressure         : 169.6 kPa
+  Vibration        : 4.75 mm/s
+  Defect Rate      : 4.47%
+  Production Speed : 44.9 u/min
+
+Detected Anomalies:
+  - Pressure elevated (169.6)
+
+Relevant Knowledge Base Context:
+Elevated pressure readings in pneumatic/hydraulic systems indicate:
+1. Downstream blockage or valve closure
+2. Filter clogging requiring replacement
+3. System leak causing pump overcompensation
+4. Regulator malfunction
+Actions: check pressure relief valves, inspect filter differential pressure,
+trace all downstream components for blockages.
+
+High temperature anomaly in manufacturing equipment typically indicates:
+1. Coolant system failure or blockage
+2. Excessive friction due to worn bearings
+3. Overloaded motor running beyond rated capacity
+4. Blocked heat exchangers or cooling fins
+Immediate actions: reduce production speed by 20%, check coolant levels,
+
+Critical multi-parameter anomaly protocol:
+When two or more parameters exceed warning thresholds simultaneously:
+1. Trigger immediate supervisor alert
+2. Reduce production speed to 50% of nominal
+3. Isolate affected machine if critical threshold reached
+4. Document all readings in non-conformance report (NCR)
+5. Do not resume full production until root cause identified and corrected
+
+Provide:
+1. ROOT CAUSE: Concise diagnosis of the most likely cause (2-3 sentences).
+2. RECOMMENDATION: Immediate corrective actions (2-3 bullet points).
+3. CONFIDENCE: Your confidence level 0.0-1.0 as a number.
+
+Format exactly:
+ROOT CAUSE: <text>
+RECOMMENDATION: <text>
+CONFIDENCE: <number>
+
+⏱️ LLM Latency: 13.75 sec
+
+---------- RAW LLM RESPONSE OBJECT ----------
+content="ROOT CAUSE: The elevated pressure reading, coupled with a significantly high defect rate, strongly indicates a restriction within the machine's pneumatic or hydraulic system. This is most likely due to a downstream blockage or a clogged filter, which is impeding normal flow and causing process instability.\n\nRECOMMENDATION:\n*   Immediately inspect the filter differential pressure and replace any clogged filters.\n*   Thoroughly trace all downstream components for blockages or restrictions.\n*   Verify the proper function of pressure relief valves and the system regulator.\n\nCONFIDENCE: 0.9" additional_kwargs={} response_metadata={'finish_reason': 'STOP', 'model_name': 'gemini-2.5-flash', 'safety_ratings': [], 'model_provider': 'google_genai'} id='lc_run--019d822f-2fc1-7f52-a527-bd3105030739-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 406, 'output_tokens': 2373, 'total_tokens': 2779, 'input_token_details': {'cache_read': 0}, 'output_token_details': {'reasoning': 2258}}
+
+---------- LLM RESPONSE TEXT ----------
+ROOT CAUSE: The elevated pressure reading, coupled with a significantly high defect rate, strongly indicates a restriction within the machine's pneumatic or hydraulic system. This is most likely due to a downstream blockage or a clogged filter, which is impeding normal flow and causing process instability.
+
+RECOMMENDATION:
+*   Immediately inspect the filter differential pressure and replace any clogged filters.
+*   Thoroughly trace all downstream components for blockages or restrictions.
+*   Verify the proper function of pressure relief valves and the system regulator.
+
+CONFIDENCE: 0.9
+
+========== PARSED OUTPUT ==========
+ROOT CAUSE:
+ The elevated pressure reading, coupled with a significantly high defect rate, strongly indicates a restriction within the machine's pneumatic or hydraulic system. This is most likely due to a downstream blockage or a clogged filter, which is impeding normal flow and causing process instability.
+
+RECOMMENDATION:
+ *   Immediately inspect the filter differential pressure and replace any clogged filters.
+*   Thoroughly trace all downstream components for blockages or restrictions.
+*   Verify the proper function of pressure relief valves and the system regulator.
+
+CONFIDENCE: 0.9
+========== EXIT analyze_root_cause_node ==========
